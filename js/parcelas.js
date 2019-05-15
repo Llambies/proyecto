@@ -29,7 +29,7 @@ function crearListaParcelas(datosParcelas, idContenedor) {
 var aux=[]
 var aux2=[]
 
-function seleccionarParcela(seleccionada, idParcela, datosParcelas, punto, color,parcelaID,datos,cajaID) {
+function seleccionarParcela(seleccionada, idParcela, datosParcelas, punto, color,parcelaID,datos,cajaID,IdNodo) {
     console.log("Parcela " + idParcela + " seleccionada " + seleccionada);
 
 	var nodos=[];
@@ -55,7 +55,7 @@ function seleccionarParcela(seleccionada, idParcela, datosParcelas, punto, color
 
     if (seleccionada == true) {
         aux[idParcela]=dibujarPoligono(puntos, color);
-        aux2[idParcela]=dibujarNodo(nodos,datos);
+        aux2[idParcela]=dibujarNodo(nodos,datos,IdNodo);
         document.getElementById(parcelaID).style.display = "block";
         document.getElementById(cajaID).style.background = "#28a745";
         document.getElementById(cajaID).style.color = "#eee";
@@ -94,7 +94,7 @@ function dibujarPoligono(vertices, color) {
 
 
 
-function dibujarNodo(puntos,datos) {
+function dibujarNodo(puntos,datos,IdNodo) {
     
 	for (var i = 0; i < puntos.length; i++) {
     var marker = new google.maps.Marker({
@@ -118,7 +118,12 @@ function dibujarNodo(puntos,datos) {
                         '<li class="list-group-item">Presión: '+datos[4]+' mb</li>'+
 
                       '</ul>'+
-                      '<div class="card-footer">Fecha: '+datos[5]+'</div>'+
+                      '<div class="card-footer">Fecha: '+datos[5]+
+                      '<form action="grafica.php" method="post">'+
+                      '<input type="hidden" name="variable1" value="'+IdNodo+'" />'+
+                      '<button type="submit" class="btn">+</button>'+
+                      '</form>'+
+                      '</div>'+
                     '</div>';
 ;
     var infowindow = new google.maps.InfoWindow({

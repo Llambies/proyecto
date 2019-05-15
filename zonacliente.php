@@ -104,7 +104,9 @@ if (!$conn) {
                         $i1++;
                         $nodos[$i1]=$consulta3['Longitud'];
                         $i1++;
+                        $idNodo=$consulta3['IdNodo'];
                     }
+                    
 
                     $i2=0;
                     $vertices=[];
@@ -128,7 +130,7 @@ if (!$conn) {
                     echo    ";var vertex".$parce."=";
                     echo    json_encode($vertices);
                     echo    ";</script>";
-                    echo    '<div id="caja'.$parce.'" class="checkparcela" for="check'.$parce.'" style="border-right:'.$color.' 20px solid;"><input id="check'.$parce.'" class="checkbox" type="checkbox" onchange="seleccionarParcela(this.checked,'.$parce.',vertex'.$parce.',nodo'.$parce.',color'.$parce.',parcelaid'.$parce.',datos'.$parce.',caja'.$parce.')"><label class="nombreparcela" for="check'.$parce.'">'.$nombre.'</label></div><br>';
+                    echo    '<div id="caja'.$parce.'" class="checkparcela" for="check'.$parce.'" style="border-right:'.$color.' 20px solid;"><input id="check'.$parce.'" class="checkbox" type="checkbox" onchange="seleccionarParcela(this.checked,'.$parce.',vertex'.$parce.',nodo'.$parce.',color'.$parce.',parcelaid'.$parce.',datos'.$parce.',caja'.$parce.','.$idNodo.')"><label class="nombreparcela" for="check'.$parce.'">'.$nombre.'</label></div><br>';
                     echo ' <style type="text/css">:root {color'.$parce.':'.$color.';}</style>';
                  }
              }

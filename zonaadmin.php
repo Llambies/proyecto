@@ -72,9 +72,9 @@
                         $result = mysqli_query($conn, "SELECT * FROM clientes");
                         while ($consulta=mysqli_fetch_array($result)) {
                             $client=$consulta['nombre'];
-                            $idClient=$consulta['idCliente'];
+                            $NIF=$consulta['NIF'];
                            
-                            echo '<option value='.$idClient.'>'.$client.'</option>';
+                            echo '<option value='.$NIF.'>'.$client.'</option>';
                         }
 
                     ?>
@@ -95,8 +95,8 @@
             
         if (isset($_POST["btn2"])) {
 
-                $idCliente=$_POST['cliente'];
-                $result = mysqli_query($conn, "SELECT * FROM clientes WHERE idCliente='$idCliente'");
+                $NIF=$_POST['cliente'];
+                $result = mysqli_query($conn, "SELECT * FROM clientes WHERE NIF='$NIF'");
                 while ($consulta=mysqli_fetch_array($result)) {
                     
                     $nombre=$consulta['nombre'];
@@ -126,7 +126,7 @@
                                        
                                      </tr>
                                    </thead>';
-                $result = mysqli_query($conn, "SELECT * FROM usuarios WHERE idCliente='$idCliente'");
+                $result = mysqli_query($conn, "SELECT * FROM usuarios WHERE NIF='$NIF'");
                 while ($consulta=mysqli_fetch_array($result)) {
                     $usuario=$consulta['IdUsuario'];
                     $nombre=$consulta['Nombre'];
@@ -191,18 +191,18 @@
                <input type="text" class="form-control col-md-8" name="NIF" placeholder="12345678A">
              </div>
              
-            <center><button type="submit" class="btn btn-info" name="btn2">Registrar cliente</button></center>
+            <center><button type="submit" class="btn btn-info" name="btn3">Registrar cliente</button></center>
         
         <?php 
 
          
-         if (isset($_POST["btn2"])) {
+         if (isset($_POST["btn3"])) {
             
              $emailE=$_POST['emailE'];
+             $telefono=$_POST['telefono'];
              $nombreC=$_POST['nombreC'];
              $direccion=$_POST['direccion'];
              $NIF=$_POST['NIF'];
-             $emailE=$_POST['emailE'];
              
 
                 $aux = mysqli_query($conn, "INSERT INTO `clientes` (`nombre`, `telefono`, `email`, `NIF`)

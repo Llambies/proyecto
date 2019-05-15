@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!------------------------------------------------------->
+<!----- Meta-información de la página ------------------->
+    
+<meta charset="UTF-8">
+   
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<title>Margarita S.L</title>
+    
+<!-- TODO: Añadir metas aquí para el indexado -->
+    
+<!------------------------------------------------------->
+<!-------------- Links ---------------------------------->
+
+
+<link rel="stylesheet" href="./css/estilos.css">
+<link rel="stylesheet" href="./css/modalLogin.css">
+    
+    <style>
+    * {
+	padding:0;
+	margin:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+ 
+body {
+	background: url(./imgs/landing%20fondo.jpg); /* Nuestra imagen de fondo */
+	background-repeat: no-repeat; /* Indicamos que no se repetira */
+	background-size: cover; /* Encajamos la imagen al 100% del ancho */
+	background-attachment: fixed; /* Establecemos una posicion fija para la imagen */
+ 
+	font-family:helvetica, arial, sans-serif;
+	line-height:20px;
+}
+ 
+        
+        header {
+            margin-top: 0px;
+        }
+        
+        header img {
+            height: 60px;
+            margin-top: -3px;
+        }
+        
+.todo {
+
+display: flex;
+flex-direction: column;
+
+
+}
+        
+        
+.contenedor {
+margin-left: 70px;
+margin-right: 70px;
+	
+}
+ 
+        
+        
+.contenedorPrincipal img {
+    
+height: 100%;
+width: 100%;
+}
+
+article {
+	background:rgba(24,8,33,.9);
+	padding:20px;
+	margin:20px 0;
+	color:#fff;
+	box-shadow:0 5px 5px 3px rgba(0, 0, 0, 0.25);
+}
+ 
+article h2 {
+	color:#fff;
+}
+ 
+article hr {
+	background:#F64740;
+	height:5px;
+	border:none;
+}
+ 
+article p {
+	line-height: 25px;
+}
+ 
+article h2, article p, article hr {
+	margin-bottom: 20px;
+}
+        
+        /*---------------------------------------*/
+/*--------------Eslogan------------------*/
+
+.letras {
+    margin-left: 110px;
+    height: 100px;
+   margin-bottom: 300px;
+   
+  text-align:left;
+  color:white;
+  font-weight:300;
+  font-size:60px;
+    text-shadow: 2px 2px 1px black;
+  
+ 
+  overflow:hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0,0,0);
+}
+
+.letras div {
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.letras div:first-of-type {    /* For increasing performance 
+                       ID/Class should've been used. 
+                       For a small demo 
+                       it's okaish for now */
+  animation: showup 7s infinite;
+}
+
+.letras div:last-of-type {
+  width:0px;
+  animation: reveal 7s infinite;
+}
+
+.letras div:last-of-type span {
+  margin-left:-355px;
+  animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    40% {width:700px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:700px;}
+}
+
+        
+    </style>
+    
+</head>
+<body>
+  
+  <header>
+        <img src="./imgs/logo_u15.svg" alt="Logo Empresarial">
+
+       <p class="Boton_sesion" onclick="iniciarModal()"><a href="#">Iniciar sesión</a></p>
+
+    </header>
+   
+   <div class="todo">
+    <section class="contenedorPrincipal">
+		<article>
+<section class="letras"> 
+    
+<div>Controla</div> 
+<div> 
+<span>tus campos a distancia</span>
+</div>
+
+</section>
+			<img src="./imgs/campitobueno.jpg" alt="">
+		</article>
+	</section>
+	<section class="contenedor">
+		<article>
+			<h2>Titulo del Articulo</h2>
+			<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ 
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ 
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</article>
+	</section>
+	<section class="contenedor">
+		<article>
+			<h2>Titulo del Articulo</h2>
+			<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ 
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ 
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</article>
+	</section>
+  </div>
+  
+  
+  
+</body>
+</html>
