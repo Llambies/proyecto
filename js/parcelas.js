@@ -68,8 +68,8 @@ function seleccionarParcela(seleccionada, idParcela, datosParcelas, punto, color
         aux[idParcela].setMap(null);
         aux2[idParcela].setMap(null);
         document.getElementById(parcelaID).style.display = "none";
-        document.getElementById(cajaID).style.color = "";
-        document.getElementById(cajaID).style.background = "";
+        document.getElementById(cajaID).style.color = "#28a745";
+        document.getElementById(cajaID).style.background = "#eee";
         
 
 
@@ -121,7 +121,7 @@ function dibujarNodo(puntos,datos,IdNodo) {
                       '<div class="card-footer">Fecha: '+datos[5]+
                       '<form action="grafica.php" method="post">'+
                       '<input type="hidden" name="variable1" value="'+IdNodo+'" />'+
-                      '<button type="submit" class="btn">+</button>'+
+                      '<button type="submit" class="btn btn-outline-info">+</button>'+
                       '</form>'+
                       '</div>'+
                     '</div>';

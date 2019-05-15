@@ -87,10 +87,7 @@ border-radius: 5px;
 }
 
 
-#listaParcelas {
-    padding: 0.4rem;
 
-}
 #London{
   display: block;
 }
@@ -199,7 +196,7 @@ font-size: 10px;
 
 
     .tabcontent{
-        max-height: 60vh;
+        max-height: 90vh;
         height: 10000px;
     }
 }
