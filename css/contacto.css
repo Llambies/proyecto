@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+
+        body {
+            font-family: 'Mukta', sans-serif;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            display: flex;
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            background: #fff;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 5px 3px 6px black;
+            margin-top: 0px;
+        }
+        
+        header a img {
+            height: 50px;
+        }
+        
+        header .boton-cerrar {
+            display: flex;
+            margin: 50px;
+            width: 119px;
+            height: 37px;
+            background: #820053;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 0.2rem;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        header .boton-cerrar:hover {
+            background: rgb(105, 0, 44);
+        }
+        
+        .contenedor {
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+        }
+        
+        .contacto { 
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 30%;
+            background: url(../imgs/lol3.jpg)no-repeat fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            color: #111;
+        }
+        .contacto .icono-contacto {
+            margin-top: 50px;
+        }
+        
+        .info-contacto {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 70%;
+            background: #fff;
+        }
+        
+        .info-empresa {
+            display: flex;
+            height: 90%;
+            padding: 2rem;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .info-empresa div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-empresa .icono {
+            width: 80px;
+            height: 80px;
+            font-size: 50px;
+            border: 2px solid;
+            border-radius: 100%;
+            margin-bottom: 25px;
+        }
+        
+        .info-empresa h4 {
+            font-weight: 600;
+            font-size: 24px;
+        }
+        
+        .info-empresa p {
+            font-size: 18px;
+            
+        }
+        
+        .flecha-bajar {
+            display: flex;
+            height: 10%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .flecha-bajar h4 {
+            margin-bottom: 0px;
+            margin-top: 25px;
+            font-weight: bold;
+        }
+        
+        .flecha-bajar a {
+            display: inline-block;
+            color: #111;
+            font-size: 3rem;
+            animation: flecha-animada 2s ease-in-out infinite;
+            margin-bottom: 50px;
+        }
+
+        @keyframes flecha-animada {
+            from {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(6px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+        .formulario-contacto {
+            display: flex;
+            background: #e9ecef;
+            padding: 1rem;
+            align-items: center;
+        }
+        
+        .form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 100%;
+            margin: 50px 0px 50px 0px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        form input[type="text"], input[type="email"] {
+            width: 80%;
+            height: 50px;
+            margin-bottom: 10px;
+            padding: 20px;
+            background: #fff;
+            border: 2px solid #820053;
+            border-radius: 5px;
+            color: #000;
+        }
+        ::placeholder { color: #333; }
+        
+        form input[placeholder="Nombre"] {
+            margin-top: 50px;
+        }
+        
+        form textarea {
+            width: 80%;
+            margin-bottom: 20px;
+            padding: 20px;
+            height: 180px;
+            background: #fff;
+            border: 2px solid #820053;
+            border-radius: 5px;
+            color: #000;
+        }
+        
+        form button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            width: 200px;
+            height: 40px;
+            font-weight: bold;
+            background: #820053;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px black;
+        }
+        
+        .foto-form {
+            display: flex;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .foto-form img {
+            width: 450px;
+            height: 350px;
+        }
+        
+        @media (max-width: 900px) {
+            .foto-form img {
+                width: 350px;
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 700px) {
+            .contenedor {
+                height: 100%;
+            }
+            .contacto {
+                height: 50%;
+                font-size: 40px;
+                padding: 0.5rem;
+                margin-right: auto;
+            }
+            .contacto h2 {
+                font-size: 30px;
+            }
+            .info-contacto {
+                height: 50%;
+            }
+            
+            .info-empresa {
+                flex-direction: column;
+                padding: 7px;
+                
+            }
+            .info-empresa .icono {
+                width: 50px;
+                height: 50px;
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+            .info-empresa h4 {
+                font-size: 18px;
+            }
+            .info-empresa p {
+                margin-bottom: 50px;
+            }
+            .correo p {
+                margin-bottom: 0;
+            }
+            .formulario-contacto {
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+            }
+            .form {
+                width: 90%;
+            }
+            .boton-enviar button {
+                width: 175px;
+            }
+            .foto-form {
+                width: 400px;
+                margin-top: 40px;
+                margin-bottom: 30px;
+            }
+            
+        }
+
+
+
+@media (max-width: 400px) {
+    .contacto {
+        width: 400px;
+    }
+    .info-contacto {
+        width: 400px;
+    }
+    .formulario-contacto {
+        width: 400px;
+    }
+}
+
+
+

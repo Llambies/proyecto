@@ -1,0 +1,205 @@
+/* Importar fuente de google fonts */
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+
+/*------------------------------------------------------*/
+/*---------- General -----------------------------------*/
+
+body {
+    font-family: 'Mukta', sans-serif;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+header {
+    position:0 0;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    background: white;
+    box-shadow: 5px 3px 6px black;
+}
+
+
+
+/* Logo */
+header img {
+    margin-top: 0px;
+    height: 50px;
+}
+
+header a .cerrar{
+margin-right: 1rem;
+background: #820053;
+border: none;
+border-radius: 5px;
+    color: #fff;
+}
+
+
+.contingut{
+   
+}
+
+.ventanas{
+    width: 80%;
+}
+
+.nombreparcela{
+    width: 100%;
+}
+.checkparcela{
+    padding: 0.3rem;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+}
+.checkparcela input{
+    border: none;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.btn-info{
+    margin: auto 0;
+    cursor: pointer;
+}
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  height: 10000px;
+  max-height: 90vh;
+  border-top: none;
+  width: 100%;
+  
+ 
+}
+
+
+#listaParcelas {
+    padding: 0.4rem;
+
+}
+#London{
+  display: block;
+}
+
+.map {
+   width: 100%;
+   height: 100%; 
+}
+
+
+.datos{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.parcela{
+    background: #eceff1;
+    padding:0.5rem;
+    border-radius: 0.3rem;
+    display: none;
+    
+}
+
+.nombre_parcela{
+    font-size: 24px;
+    margin: 0;  
+}
+
+.medidas{
+    display: flex;
+}
+
+
+.medida{
+    color: white;
+    width: 4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 0.4rem;
+    margin-right: 0.5rem;
+    background: #fefefe;
+    height: 4rem;
+}
+
+.nombre_nodo{
+    font-size: 12px;
+    margin: 0rem;
+}
+
+.num{
+    font-size: 1rem;
+    margin: 0rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.descript{
+font-size: 10px;
+    margin: 0rem;
+    width: 100%;
+}
+
+.nodo{
+    background: #fafafa;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+}
+.card-body{
+    padding: 1rem;
+    margin: 0 ;
+}
+
+
+
+
+#temperatura{
+    color: #e65100;
+    color: #e65100;
+
+}
+#salinidad{
+    color: #9e9e9e;
+    color: #9e9e9e;
+
+}
+#humedad{
+    color:  #00838f;
+    color:  #00838f;
+
+}
+#luminosidad{
+    color:  #ffd600;
+    color:  #ffd600;
+
+}
+#presion{
+    color:  #607d8b;
+    color:  #607d8b;
+    
+
+}
+@media(max-width: 700px){
+
+
+    .tabcontent{
+        max-height: 60vh;
+        height: 10000px;
+    }
+}

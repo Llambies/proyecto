@@ -1,0 +1,217 @@
+/* Importar fuente de google fonts */
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+
+/*------------------------------------------------------*/
+/*---------- General -----------------------------------*/
+
+body {
+    font-family: 'Mukta', sans-serif;
+    
+}
+
+
+html {
+    background: no-repeat url(../imgs/back.jpg) fixed;
+    background-size: cover;
+    padding: 0;
+    scroll-behavior: smooth;
+    
+    margin: 0 auto;
+}
+.contenedorInicial{
+
+}
+
+/*------------------------------------------------------*/
+/*---------- Header ------------------------------------*/
+
+/* Contenedor */
+header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    
+}
+
+
+
+/* Logo */
+header img {
+    margin-top: 0px;
+    height: 50px;
+}
+header button{
+margin-right: 1rem;
+background: #820053;
+border: none;
+border-radius: 5px;
+    color: #fff;
+}
+/*------------------------------------------------------*/
+/*------------------Principal---------------------------*/
+
+/* Contenedor */
+.principal {
+    height: 40rem;
+    background-image: url("../imgs/campitobuenorecortada.jpg");
+    background-size: cover;
+ background-attachment: fixed;
+    width: 100%;
+    color: white;
+    text-align: center;
+    vertical-align: bottom;
+    padding-top: 15rem;
+
+    
+    
+   
+}
+.principal2 {
+    height: 20rem;
+    background-image: url("../imgs/campitobuenorecortada.jpg");
+    background-size: cover;
+     background-attachment: fixed;
+    text-shadow: 2px 2px 1px black;
+    width: 100%;
+    color: white;
+    text-align: center;
+    vertical-align: bottom;
+    
+
+    
+    
+   
+}
+/*---------------------------------------*/
+/*--------------Eslogan------------------*/
+
+.letras {
+    
+    color: white;
+    font-size: 60px;
+    text-shadow: 1px 1px 1px black;
+    animation:showup 1s 1;
+   
+    
+    
+}
+
+.principal .btn-info {
+    margin-top: 10rem;
+}
+
+.boton-contacto{
+    padding: 2rem;
+}
+
+
+
+/*------------------------------------------------------*/
+/*------ Características -------------------------------*/
+
+.carac {
+    animation: animatezoom;
+    animation-iteration-count: 1;
+    animation-duration: 0.3s;
+    animation-delay: 0s;
+    background: #e9ecef;
+    scroll-behavior: smooth;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+
+
+}
+.card{
+    margin: 0 auto;
+}
+.card-text{
+    font-size: 3rem;
+    padding: 1rem;
+    
+
+
+}
+
+
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@keyframes showup {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+
+    }
+
+    100% {
+        opacity: 1;
+
+    }
+}
+
+
+
+
+@media(max-width: 900px){
+.letras {
+    font-size: 46px;
+}
+.carac {
+    
+    flex-direction: column;
+    width: auto;
+
+
+}
+.principal2 .card-text{
+    font-size: 32px;
+}
+}
+@media(max-width: 411px){
+    .principal2 .card-text{
+    font-size: 24px;
+}
+
+.letras {
+    font-size: 32px;
+}
+.carac {
+    
+    flex-direction: column;
+    width: auto;
+
+
+}
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Boostrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- fin Boostrap css -->
+    <!--<link rel="stylesheet" href="css/estilos.css">-->
+    <!--Cargando iconos-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, Initial-scale=1, shrink-to-fit=no">
+    <link href="./css/jquery.multiselect.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/contacto.css">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/39B1E348-1824-C049-BC9F-2DCA0CBFF285/main.js" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/39B1E348-1824-C049-BC9F-2DCA0CBFF285/main.js" charset="UTF-8"></script><script src="./js/jquery.min.js"></script>
+    <title>Contacto - Margarita S.L</title>
+</head>
+<body>
+   <div class="contenedor">
+   <!-- ------------------ HEADER --------------------- -->
+    <header>
+        <a href="#"><img src="imgs/logo_u15.svg" alt="logo"></a>
+        <a href="index.php" class="boton-cerrar">Atrás</a>
+    </header>
+    
+    <!-- ------------------ CONTENEDOR PRINCIPAL: INFO EMPRESA --------------------- -->
+    
+        
+        
+        <!-- ------------ LOGO PAGINA CONTACTO ------------- -->
+        
+        <div class="contacto">
+            <div class="icono-contacto"><i class="far fa-comment"></i></div>
+            <h2>Contacto</h2>
+        </div>
+        
+        <!-- -------------- DATOS EMPRESA -------------- -->
+    
+    <div class="info-contacto">
+        <div class="info-empresa">
+           
+            <div class="direccion">
+                <div class="icono"><i class="fas fa-map-marker-alt"></i></div>
+                <h4>Dirección</h4>
+                <p>C/ Camino de Vera 21, Valencia</p>
+            </div>
+            
+            <div class="telefono">
+                <div class="icono"><i class="fas fa-phone"></i></div>
+                <h4>Teléfono</h4>
+                <p>666 00 01 22</p>
+            </div>
+            
+            <div class="correo">
+                <div class="icono"><i class="fas fa-envelope"></i></div>
+                <h4>Email</h4>
+                <p>margaritaquintero@upv.com</p>
+            </div>
+            
+        </div>
+        <div class="flecha-bajar text-center">
+            <h4>¿Necesitas ayuda?</h4>
+            <a href="#formulario-contacto"><i class="fas fa-angle-down"></i></a>
+        </div>
+    </div>
+</div>   
+    
+    <!-- ------------------ FORMULARIO DE CONTACTO --------------------- -->
+    
+    <div class="formulario-contacto" id="formulario-contacto">
+        
+        <div class="form">
+            <form id="formulario" method="post" action="post.php">
+                <input type="text" name ="nombre" placeholder="Nombre">
+                <input type="text" name="apellidos" placeholder="Apellidos">
+                <input type="email" name="email" placeholder="Email">
+                <input type="text" name="telefono" placeholder="Teléfono">
+                <textarea cols="30" rows="10" name="mensaje" placeholder="¿En qué te podemos ayudar?"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        
+        <div class="foto-form">
+            <img src="imgs/agricultor-contactando.jpg" alt="contacto">
+        </div>
+        
+    </div>
+</body>
+</html>

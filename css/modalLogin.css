@@ -1,0 +1,282 @@
+#fondoModal{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.contenidoModal{
+    position: fixed;
+    min-width:450px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+    animation: animatezoom 0.6s;
+    border-radius: 5px;
+    background-color: white;
+    
+
+
+}
+.contenidoModal img{
+	height:5rem;
+	margin:0;
+}
+
+hr{
+    width: 80%;
+}
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+        
+}
+
+h2{
+    color: white;
+    font-size: 30pt;
+    padding-bottom: 10px;
+    border-bottom: 4px solid white;
+    font-weight: bold;
+    padding-left: -1rem;
+    margin-bottom: -6px;
+    margin-top: 6px;
+
+}
+
+.inputConLogo{
+    width: 80%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    border: 2px solid rgb(145, 0, 77);
+    padding-left: 5px;
+    margin-top: 1rem;
+    
+} 
+
+
+.inputDato{
+    padding-left: 15px;
+    border: none;
+    font-size: 16px;    
+    width: auto;
+    margin: 1rem 0;
+}
+.inputDato:focus{
+    outline: 0px;
+}
+
+
+#inicioSesion{
+    display: flex;
+    align-items: center;
+}
+
+    
+
+
+
+#botonesFormulario{
+    width: 90%;
+    display: flex;
+    justify-content:center ;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.botonEnviar{
+    width: 90%;
+    color: white;
+    border: none;
+    margin: 1rem 0;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    height: 55px;
+    background-color: #820053;
+    box-shadow: 4px 2px 5px 0px rgba(145,0,77,0.75);
+    font-weight: bolder;
+    margin-top: 2rem;
+    
+}
+
+.botonEnviar:hover {
+    background-color: rgb(105, 0, 44);
+}
+    
+.botonEnviar:active {
+    background-color: #A20083;
+
+    box-shadow: none;
+}
+
+
+.botonEnviar input{
+    width: 100%;
+    background-color: #4DAA50;
+    border: none;
+    font-size: 16px;
+}
+
+.boton_rojo{
+    width: 90%;
+    color: white;
+    background-color:rgb(160, 160, 160);
+    margin: 1rem 0px ;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    padding: 18px 0px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+    font-weight: bolder;
+    order: 1;
+        
+    }
+
+.botonCerrar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;  
+}
+.botonCerrar img{
+    cursor: pointer;
+
+    margin: 0 auto;
+    height: 30px;
+
+}
+
+.boton_rojo:active{
+    box-shadow: none;
+}
+
+.contacto{
+    width: 70%;
+    display: flex;
+    justify-content: space-around
+    
+}
+.contacto p{
+    display: inline-block;
+}
+.contacto p a{
+    color: #0352b9;
+    letter-spacing: .25px;
+    cursor: pointer;
+
+
+}
+
+@media(max-width: 500px){
+    .contenidoModal{   
+        width: 95% ;
+        min-width: 0;
+        }
+    #botonesFormulario{
+        width: 90%;
+        flex-wrap: wrap;
+
+    }
+    #botonesFormulario input{
+        height: 55px;
+        width: 100%;
+    }
+    .botonEnviar{
+        margin: 30px 0 0 0;
+    }
+    .recuperarPass{
+        width: 95% ;
+        min-width: 0;
+    }
+    .contacto{
+        width: 85%;
+        justify-content: space-between;
+    }
+
+    .inputConLogo{
+        width: 90%;
+    }
+    .boton_rojo{
+        width: 100%;
+    }
+}
+
+@media(max-width: 300px){
+    .contenidoModal{
+        width: 100% ;
+        background-color: rgb(189, 6, 6);
+
+    }
+}
+
+
+.recuperarPass{
+    position: fixed;
+    background: white;
+    max-width:450px ;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+    animation: animatezoom 0.6s;
+    border-radius: 5px;
+}
+
+
+.recuperarPass p{
+    color: #820053;
+    display: block;
+    width: 80%;
+    margin-bottom: -0.3rem;
+    margin-top: -5px;    
+}
+
+
+.recuperarPass i:hover{
+    color:#620223;
+    background:#ccaabb;
+}
+
+h3{
+    color: #820053;
+    font-size: 22pt;
+    margin-top: 0px;
+    border-bottom: 4px solid white;
+    font-weight: bold;
+    padding-left: -1rem;
+    border-radius: 5px 5px 0 0;
+}
+.cerrarModal{
+font-size: 22px;
+text-align: right;
+width: 100%;
+margin-right: 5px;
+
+}
+.cerrarModal i{
+    padding: 5px;
+}
+
+.cerrarModal i:hover{
+    color:#620223;
+    background:#ccaabb;
+}
