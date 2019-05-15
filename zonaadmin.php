@@ -86,7 +86,7 @@
                </div>
                </div>
            </table>
-               
+           
         
              
             <?php 
@@ -205,8 +205,8 @@
              $NIF=$_POST['NIF'];
              
 
-                $aux = mysqli_query($conn, "INSERT INTO `clientes` (`nombre`, `telefono`, `email`, `NIF`)
-                  VALUES ('$nombreC','$telefono','$emailE','$NIF')"); }?>
+                $aux = mysqli_query($conn, "INSERT INTO `clientes` (`nombre`, `telefono`, `email`, `NIF`,`direccion`)
+                  VALUES ('$nombreC','$telefono','$emailE','$NIF','$direccion')"); }?>
 
 </div>
 
