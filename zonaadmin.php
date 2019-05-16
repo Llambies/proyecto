@@ -50,7 +50,6 @@
         
   <a class="nav-item nav-link active" id="nav-lista-tab" data-toggle="tab" href="#nav-lista" role="tab" aria-controls="nav-lista" aria-selected="true">Listas</a>
   <a class="nav-item nav-link" id="nav-añadirC-tab" data-toggle="tab" href="#nav-añadirC" role="tab" aria-controls="nav-añadirC" aria-selected="false">Añadir Cliente</a>
-  <a class="nav-item nav-link" id="nav-añadirU-tab" data-toggle="tab" href="#nav-añadirU" role="tab" aria-controls="nav-añadirU" aria-selected="false">Añadir usuario</a>
   
    
 </nav>
@@ -59,33 +58,7 @@
 <div class="tab-content" id="nav-tabContent">
 <div class="tab-pane fade show active" id="nav-lista" role="tabpanel" aria-labelledby="nav-lista-tab">
   <form action="zonaadmin.php" method="post" class="selectorcliente">
-            <table class="table">
-                <div class="form-row">
-                    <div class="form-group col-2" style="margin: auto 0;">
-                    <label class="texto">Cliente</label>
-                    </div>
-                    <div class="form-group col-7">
-                        <select name="cliente" class="form-control">
-                         <option selected>selecciona un cliente...</option>
-                   <?php 
-
-                        $result = mysqli_query($conn, "SELECT * FROM clientes");
-                        while ($consulta=mysqli_fetch_array($result)) {
-                            $client=$consulta['nombre'];
-                            $NIF=$consulta['NIF'];
-                           
-                            echo '<option value='.$NIF.'>'.$client.'</option>';
-                        }
-
-                    ?>
-                         </select>
-
-                    </div>
-               <div class="form-group col-2">
-               <button type="submit" class="btn btn-info" name="btn2">Buscar</button>
-               </div>
-               </div>
-           </table>
+         
            
         
              
@@ -93,25 +66,7 @@
                 //$_GET["nombre"];
             
             
-        if (isset($_POST["btn2"])) {
-
-                $NIF=$_POST['cliente'];
-                $result = mysqli_query($conn, "SELECT * FROM clientes WHERE NIF='$NIF'");
-                while ($consulta=mysqli_fetch_array($result)) {
-                    
-                    $nombre=$consulta['nombre'];
-                    $telefono=$consulta['telefono'];
-                    $direccion=$consulta['direccion'];
-                    echo '<div class="card border-info">
-                          <div class="card-body text-info">
-                            <h5 class="card-title">'.$nombre.'</h5>
-                            <p class="card-text">Teléfono: '.$telefono.' <br>Dirección: '.$direccion.'</p>
-                          </div>
-                        </div>' ;
-
-
-                }
-
+       
                 echo '</form>
 
                            <table class="table table-striped" >
@@ -126,23 +81,23 @@
                                        
                                      </tr>
                                    </thead>';
-                $result = mysqli_query($conn, "SELECT * FROM usuarios WHERE NIF='$NIF'");
+                $result = mysqli_query($conn, "SELECT * FROM clientes");
                 while ($consulta=mysqli_fetch_array($result)) {
-                    $usuario=$consulta['IdUsuario'];
-                    $nombre=$consulta['Nombre'];
-                    $apellido=$consulta['Apellidos'];
-                    $nick=$consulta['Usuario'];
-                    $email=$consulta['Email'];
+                    $telefono=$consulta['telefono'];
+                    $nombre=$consulta['nombre'];
+                    $direccion=$consulta['direccion'];
+                    $NIF=$consulta['NIF'];
+                    $email=$consulta['email'];
                     
-                    echo    "<script>var ww".$usuario."= 0</script>";
+                    echo    "<script>var ww".$NIF."= 0</script>";
                   
                     echo '  <tr >
-                              <td scope="row">'.$usuario.'</td>
-                              <td scope="row">'.$nick.'</td>
-                              <td scope="row">'.$email.'</td>';
-                    echo     '<td scope="row" id="a'.$usuario.'">
-                              <form action="editar.php" method="post">
-                              <input type="hidden" name="variable1" value="'.$usuario.'" />
+                              <td scope="row">'.$NIF.'</td>
+                              <td scope="row">'.$nombre.'</td>
+                              <td scope="row">'.$telefono.'</td>';
+                    echo     '<td scope="row" id="a'.$NIF.'">
+                              <form action="zonaadminusuarios.php" method="post">
+                              <input type="hidden" name="variable1" value="'.$NIF.'" />
                               <button type="submit" class="btn btn-outline-info">+</button>
                               </form>
                               </td>';
@@ -158,7 +113,7 @@
 
                 }
             echo "</table>";
-            }
+            
                 
             ?>
 
@@ -210,87 +165,6 @@
 
 </div>
 
-
-
-
-<div class="tab-pane fade" id="nav-añadirU" role="tabpanel" aria-labelledby="nav-añadirU-tab" >
-  <form action="zonaadmin.php" method="post" class="formulario">
-          
-            <div class="form-row" >
-               <div class="form-group col-md-6">
-                 <label for="usuario">Usuario</label>
-                 <input type="text" class="form-control" name="usuario" placeholder="Usuario">
-               </div>
-               <div class="form-group col-md-6">
-                 <label for="password">Password</label>
-                 <input type="password" class="form-control" name="password" placeholder="Contraseña">
-               </div>
-             </div>
-             <div class="form-group">
-               <label for="email">E-Mail</label>
-               <input type="email" class="form-control col-md-8" name="email" placeholder="email@email.com">
-             </div>
-              <div class="form-row" >
-               <div class="form-group col-md-4">
-                 <label for="nombre">Nombre</label>
-                 <input type="text" class="form-control" name="nombre" placeholder="Nombre">
-               </div>
-               <div class="form-group col-md-8">
-                 <label for="apellidos">Apellidos</label>
-                 <input type="text" class="form-control" name="apellidos" placeholder="Apellidos">
-               </div>
-             </div>
-             <div class="form-row">
-               <div class="form-group col-md-4">
-                 <label for="rol">Rol</label>
-                 <select name="rol" class="form-control">
-                   <option selected value="cliente">Cliente</option>
-                   <option value="administrador">Administrador</option>
-                 </select>
-               </div>
-               
-             
-                    
-                    <div class="form-group col-md-4">
-                        <label for="cliente">Cliente</label>
-                        <select name="cliente" class="form-control">
-                         <option>selecciona un cliente...</option>
-                   <?php 
-
-                        $result = mysqli_query($conn, "SELECT * FROM clientes");
-                        while ($consulta=mysqli_fetch_array($result)) {
-                            $client=$consulta['nombre'];
-                            $NIF=$consulta['NIF'];
-                           
-                            echo '<option value='.$NIF.'>'.$client.'</option>';
-                        }
-
-                    ?>
-                         </select>
-
-                    </div>
-               </div>
-
-             
-            <center><button type="submit" class="btn btn-info" name="btn1">Registrar usuario</button></center>
-        </form>
-        <?php 
-
-         
-         if (isset($_POST["btn1"])) {
-            
-             $usuario=$_POST['usuario'];
-             $contrasenya=password_hash($_POST['password'],PASSWORD_DEFAULT);
-             $email=$_POST['email'];
-             $nombre=$_POST['nombre'];
-             $apellidos=$_POST['apellidos'];
-             $rol=$_POST['rol'];
-             $NIF=$_POST['cliente'];
-             echo $nombre.$contrasenya.$email.$nombre.$apellidos.$rol.$NIF;
-
-                $aux = mysqli_query($conn, "INSERT INTO `usuarios` ( `NIF`, `Nombre`, `Apellidos`, `Usuario`, `Password`, `Email`, `Rol`)
-                VALUES ( '$NIF','$nombre','$apellidos','$usuario','$contrasenya','$email','$rol')");}?>
-</div>
 </div>
 
 </div>
