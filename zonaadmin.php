@@ -260,9 +260,9 @@
                         $result = mysqli_query($conn, "SELECT * FROM clientes");
                         while ($consulta=mysqli_fetch_array($result)) {
                             $client=$consulta['nombre'];
-                            $idClient=$consulta['idCliente'];
+                            $NIF=$consulta['NIF'];
                            
-                            echo '<option value='.$idClient.'>'.$client.'</option>';
+                            echo '<option value='.$NIF.'>'.$client.'</option>';
                         }
 
                     ?>
@@ -285,11 +285,11 @@
              $nombre=$_POST['nombre'];
              $apellidos=$_POST['apellidos'];
              $rol=$_POST['rol'];
-             $idCliente=$_POST['cliente'];
-             echo $nombre.$contrasenya.$email.$nombre.$apellidos.$rol.$idCliente;
+             $NIF=$_POST['cliente'];
+             echo $nombre.$contrasenya.$email.$nombre.$apellidos.$rol.$NIF;
 
-                $aux = mysqli_query($conn, "INSERT INTO `usuarios` ( `idCliente`, `Nombre`, `Apellidos`, `Usuario`, `Password`, `Email`, `Rol`)
-                VALUES ( '$idCliente','$nombre','$apellidos','$usuario','$contrasenya','$email','$rol')");}?>
+                $aux = mysqli_query($conn, "INSERT INTO `usuarios` ( `NIF`, `Nombre`, `Apellidos`, `Usuario`, `Password`, `Email`, `Rol`)
+                VALUES ( '$NIF','$nombre','$apellidos','$usuario','$contrasenya','$email','$rol')");}?>
 </div>
 </div>
 
