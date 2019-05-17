@@ -68,7 +68,7 @@ if (!$conn) {
     <header>
         <img src="./imgs/logo_u15.svg" alt="Logo Empresarial">
        
-        <a href="./index.php"> <button class="cerrar">Cerrar sesión</button></a>
+        <a href="./index.php"> <button class="btn btn-success">Cerrar sesión</button></a>
 
     </header>
 

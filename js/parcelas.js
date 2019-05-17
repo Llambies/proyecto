@@ -121,7 +121,7 @@ function dibujarNodo(puntos,datos,IdNodo) {
                       '<div class="card-footer">Fecha: '+datos[5]+
                       '<form action="grafica.php" method="post">'+
                       '<input type="hidden" name="variable1" value="'+IdNodo+'" />'+
-                      '<button type="submit" class="btn btn-outline-info">+</button>'+
+                      '<button type="submit" class="btn btn-outline-info btn-sm">+</button>'+
                       '</form>'+
                       '</div>'+
                     '</div>';
