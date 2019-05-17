@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-05-2019 a las 11:30:26
+-- Tiempo de generación: 17-05-2019 a las 08:26:45
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -29,20 +29,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `clientes` (
-  `idCliente` int(11) NOT NULL,
+  `NIF` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `tipoEmpresa` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `fechaCreacion` date NOT NULL
+  `fechaCreacion` date NOT NULL,
+  `telefono` int(15) NOT NULL,
+  `direccion` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`idCliente`, `nombre`, `tipoEmpresa`, `fechaCreacion`) VALUES
-(1, 'Agricom', 'Cooperativa', '2019-03-17'),
-(2, 'Hermanos Perez', 'Sociedad Limitada', '2019-03-17'),
-(3, 'Margarita', 'Sociedad Limitada', '2019-03-01');
+INSERT INTO `clientes` (`NIF`, `nombre`, `fechaCreacion`, `telefono`, `direccion`, `email`) VALUES
+('1', 'Agricom', '2019-03-17', 123456789, 'c/ Calle default', NULL),
+('2', 'Hermanos Perez', '2019-03-17', 666666666, 'a/ Los naranjos', NULL),
+('3', 'Margarita', '2019-03-01', 555555555, 'c/ Estoesunacalle', NULL),
+('342342F', 'Alfonso', '0000-00-00', 33333333, 'Calle del Padre Francisco Ferrando, 22', 'adrmallla17@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -72,8 +75,8 @@ INSERT INTO `datos` (`IdDato`, `IdNodo`, `Agua`, `Luz`, `Sol`, `Sal`, `Presion`,
 (4, 6, 89, 100, 34, 34, 1024, '2019-04-28 13:00:00'),
 (5, 6, 80, 80, 32, 32, 1023, '2019-04-28 18:00:00'),
 (6, 6, 65, 42, 24, 27, 1022, '2019-04-28 23:00:00'),
-(16, 5, 54, 44, 23, 23, 1023, '2019-04-28 01:00:00'),
-(17, 5, 52, 57, 26, 22, 1024, '2019-04-28 04:00:00'),
+(16, 5, 54, 44, 23, 100, 1023, '2019-04-28 01:00:00'),
+(17, 5, 52, 57, 26, 100, 1024, '2019-04-28 04:00:00'),
 (18, 5, 34, 87, 29, 20, 1024, '2019-04-28 08:00:00'),
 (19, 5, 89, 99, 34, 34, 1024, '2019-04-28 13:00:00'),
 (20, 5, 80, 81, 32, 32, 1023, '2019-04-28 18:00:00'),
@@ -140,12 +143,23 @@ INSERT INTO `parcelas` (`IdParcela`, `TipoCultivo`, `Nombre`, `ColorParcela`) VA
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `usuario-cliente`
+--
+
+CREATE TABLE `usuario-cliente` (
+  `NIF` varchar(11) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `IdUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
   `IdUsuario` int(11) NOT NULL,
-  `idCliente` int(11) NOT NULL,
+  `NIF` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `Nombre` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `Apellidos` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `Usuario` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
@@ -158,12 +172,14 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`IdUsuario`, `idCliente`, `Nombre`, `Apellidos`, `Usuario`, `Password`, `Email`, `Rol`) VALUES
-(1, 1, 'Anselmo', 'Rodriguez', 'anselmo', '$2y$10$aXC4e/RROuVWw08UmHRVMe86b9gXgm8WJxV0uw3SAjnM6zyz77Ovm', 'anselmo@margarita.com', 'cliente'),
-(10, 2, 'Paco', 'Perez', 'pacoperez', '$2y$10$aXC4e/RROuVWw08UmHRVMe86b9gXgm8WJxV0uw3SAjnM6zyz77Ovm', 'paco@gmail.com', 'cliente'),
-(11, 3, 'Administrador', '01', 'admin', '$2y$10$aXC4e/RROuVWw08UmHRVMe86b9gXgm8WJxV0uw3SAjnM6zyz77Ovm', 'marcalandete@gmail.com', 'administrador'),
-(12, 3, 'elver', 'galarga', 'admin2', '$2y$10$aXC4e/RROuVWw08UmHRVMe86b9gXgm8WJxV0uw3SAjnM6zyz77Ovm', 'email@email.com', 'admin'),
-(51, 2, 'Adrian', 'Llambies', 'pepe', '$2y$10$xOmnqUjq0ucsNAJMA8QbNu/uvzeRX4uVdXVBP2wohnZm/5BFv823y', 'adrmallla17@gmail.com', 'cliente');
+INSERT INTO `usuarios` (`IdUsuario`, `NIF`, `Nombre`, `Apellidos`, `Usuario`, `Password`, `Email`, `Rol`) VALUES
+(1, '1', 'Anselmo', 'Rodriguez', 'anselmo', '$2y$10$aXC4e/RROuVWw08UmHRVMe86b9gXgm8WJxV0uw3SAjnM6zyz77Ovm', 'anselmo@margarita.com', 'cliente'),
+(10, '2', 'Paco', 'Perez', 'pacoperez', '$2y$10$aXC4e/RROuVWw08UmHRVMe86b9gXgm8WJxV0uw3SAjnM6zyz77Ovm', 'paco@gmail.com', 'cliente'),
+(11, '3', 'Administrador', '01', 'admin', '$2y$10$aXC4e/RROuVWw08UmHRVMe86b9gXgm8WJxV0uw3SAjnM6zyz77Ovm', 'marcalandete@gmail.com', 'administrador'),
+(12, '3', 'elver', 'galarga', 'admin2', '$2y$10$aXC4e/RROuVWw08UmHRVMe86b9gXgm8WJxV0uw3SAjnM6zyz77Ovm', 'email@email.com', 'admin'),
+(51, '2', 'Adrian', 'Llambies', 'pepe', '$2y$10$xOmnqUjq0ucsNAJMA8QbNu/uvzeRX4uVdXVBP2wohnZm/5BFv823y', 'adrmallla17@gmail.com', 'cliente'),
+(56, '1', 'Adrian', 'Llambies', 'pacoperezs', '$2y$10$hIq5FxI93Yu4HsYu/ayMP.Kq0T70rblC.7oUzzq9mMvzwv9VeALKK', 'adrmallla17@gmail.com', 'administrador'),
+(57, '3', 'Adrian', 'Llambies', 'admin3', '$2y$10$lcq.L.YxO.PoZqXfcUAZneMSklomEyWV9gBUYIMCvSaUcF7WmWyxy', 'adrmallla17@gmail.com', 'cliente');
 
 -- --------------------------------------------------------
 
@@ -231,7 +247,7 @@ INSERT INTO `vertices` (`IdVertice`, `IdParcela`, `Latitud`, `Longitud`) VALUES
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`idCliente`),
+  ADD PRIMARY KEY (`NIF`),
   ADD UNIQUE KEY `nombre` (`nombre`);
 
 --
@@ -253,6 +269,13 @@ ALTER TABLE `parcelas`
   ADD PRIMARY KEY (`IdParcela`);
 
 --
+-- Indices de la tabla `usuario-cliente`
+--
+ALTER TABLE `usuario-cliente`
+  ADD PRIMARY KEY (`IdUsuario`),
+  ADD KEY `NIF` (`NIF`,`IdUsuario`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -264,7 +287,9 @@ ALTER TABLE `usuarios`
 -- Indices de la tabla `usuariosparcelas`
 --
 ALTER TABLE `usuariosparcelas`
-  ADD PRIMARY KEY (`IdUsuarioParcela`);
+  ADD PRIMARY KEY (`IdUsuarioParcela`),
+  ADD KEY `IdParcela` (`IdParcela`),
+  ADD KEY `IdUsuario` (`IdUsuario`);
 
 --
 -- Indices de la tabla `vertices`
@@ -275,12 +300,6 @@ ALTER TABLE `vertices`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `clientes`
---
-ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `datos`
@@ -301,10 +320,16 @@ ALTER TABLE `parcelas`
   MODIFY `IdParcela` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT de la tabla `usuario-cliente`
+--
+ALTER TABLE `usuario-cliente`
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de la tabla `usuariosparcelas`
@@ -317,6 +342,29 @@ ALTER TABLE `usuariosparcelas`
 --
 ALTER TABLE `vertices`
   MODIFY `IdVertice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `parcelas`
+--
+ALTER TABLE `parcelas`
+  ADD CONSTRAINT `parcelas_ibfk_1` FOREIGN KEY (`IdParcela`) REFERENCES `usuariosparcelas` (`IdParcela`);
+
+--
+-- Filtros para la tabla `usuario-cliente`
+--
+ALTER TABLE `usuario-cliente`
+  ADD CONSTRAINT `usuario-cliente_ibfk_1` FOREIGN KEY (`NIF`) REFERENCES `clientes` (`NIF`),
+  ADD CONSTRAINT `usuario-cliente_ibfk_2` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`IdUsuario`);
+
+--
+-- Filtros para la tabla `usuariosparcelas`
+--
+ALTER TABLE `usuariosparcelas`
+  ADD CONSTRAINT `usuariosparcelas_ibfk_1` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`IdUsuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
