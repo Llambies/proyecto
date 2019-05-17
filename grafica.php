@@ -12,14 +12,70 @@ $IdNodo = $_POST['variable1'];
     <meta charset="UTF-8">
     <title>Gráficas de datos</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Mukta');
+
+        body {
+            font-family: 'Mukta', sans-serif;
+        }
+        html, body {
+            margin: 0;
+            background: url(imgs/back.jpg)no-repeat center center;
+            background-size: cover;
+            height: 100%;
+        }
+        header {
+            display: flex;
+            position: relative;
+            width: 100%;
+            height: 50px;
+            background: #fff;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 5px 3px 6px black;
+            margin-top: 0px;
+        }
+        
+        header a img {
+            height: 50px;
+        }
+        
+        header .boton-cerrar {
+            display: flex;
+            margin: 50px;
+            width: 119px;
+            height: 32px;
+            background: #820053;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 0.2rem;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        header .boton-cerrar:hover {
+            background: rgb(105, 0, 44);
+        }
+        canvas {
+            background: white;
+            margin: 20px 0 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <canvas id="myChart" width="100" height="48"></canvas>
+   <header>
+        <a href="#"><img src="imgs/logo_u15.svg" alt="logo"></a>
+        <a href="zonacliente.php" class="boton-cerrar">Atrás</a>
+    </header>
+    <canvas id="myChart" width="100%" height="43%"></canvas>
 <script>
     
 var ctx = document.getElementById("myChart").getContext('2d');    
 
 var opciones = {
+        responsive: true,
         type: 'line',
         data: {
             labels: [
@@ -118,23 +174,55 @@ var opciones = {
                     ticks: {
                         beginAtZero: true,
                         min: 0,
-                        max: 100
-                    } // ticks
-                },
+                        max: 100, 
+                        fontColor: "black"
+                    }, // ticks
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Tª, Hum., Ilum., Sal.',
+                        fontSize: 18,
+                        fontColor: "black"
+                    } // scaleLabel
+                    ,gridLines: {
+                        display: false,
+                        color: "black"
+                    }
+                }, // eje izquierda
                    {
                     id: 'B',
                     position: 'right',
                     ticks: {
                         beginAtZero: false,
                         min: 850,
-                        max: 1100
-                    } // ticks
-                   }    
-                ] // yAxes
+                        max: 1100,
+                        fontColor: "black"
+                    }, // ticks
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Presión',
+                        fontSize: 18,
+                        fontColor: "black"
+                    } // scaleLabel 
+                    ,gridLines: {
+                        display: false,
+                        color: "black"
+                    }
+                   } // eje derecha    
+                ], // yAxes
+            xAxes: [{
+                ticks: {
+                    fontColor: "black"
+                } // ticks
+                ,gridLines: {
+                    display: false,
+                    color: "black"    
+                    }
+            }] // xAxes
         }, // scales
         legend: {
             labels: {
                 fontSize: 16,
+                fontColor: "black"
             } // labels
         } // legend
     } // options
