@@ -20,8 +20,7 @@ $IdNodo = $_POST['variable1'];
         }
         html, body {
             margin: 0;
-            background: url(imgs/back.jpg)no-repeat center center;
-            background-size: cover;
+           
             height: 100%;
         }
         header {
@@ -69,7 +68,7 @@ $IdNodo = $_POST['variable1'];
         <a href="#"><img src="imgs/logo_u15.svg" alt="logo"></a>
         <a href="zonacliente.php" class="boton-cerrar">Atrás</a>
     </header>
-    <canvas id="myChart" width="100%" height="43%"></canvas>
+    <canvas id="myChart" width="10%" height="10%"></canvas>
 <script>
     
 var ctx = document.getElementById("myChart").getContext('2d');    
@@ -221,7 +220,7 @@ var opciones = {
         }, // scales
         legend: {
             labels: {
-                fontSize: 16,
+                fontSize: 36,
                 fontColor: "black"
             } // labels
         } // legend

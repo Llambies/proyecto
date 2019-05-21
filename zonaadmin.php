@@ -13,7 +13,20 @@
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
     $id = $_SESSION['id'];
     $result = mysqli_query($conn, "SELECT * FROM usuarios");
-?>
+?><?php 
+
+         
+         if (isset($_POST["btn3"])) {
+            
+             $emailE=$_POST['emailE'];
+             $telefono=$_POST['telefono'];
+             $nombreC=$_POST['nombreC'];
+             $direccion=$_POST['direccion'];
+             $NIF=$_POST['NIF'];
+             
+
+                $aux = mysqli_query($conn, "INSERT INTO `clientes` (`nombre`, `telefono`, `email`, `NIF`,`direccion`)
+                  VALUES ('$nombreC','$telefono','$emailE','$NIF','$direccion')"); }?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -131,7 +144,7 @@
              </div>
              <div class="form-group col-md-6">
                <label for="telefono">Teléfono de contacto</label>
-               <input type="text" class="form-control" name="telefono" placeholder="666666666">
+               <input required="true" type="text" class="form-control" name="telefono" placeholder="666666666">
              </div>
              <div class="form-group col-md-6">
                <label for="direccion">Direccion</label>
@@ -143,25 +156,12 @@
              </div>
              <div class="form-group col-md-6">
                <label for="NIF">NIF</label>
-               <input type="text" class="form-control col-md-8" name="NIF" placeholder="12345678A">
+               <input required="true" type="text" class="form-control col-md-8" name="NIF" placeholder="12345678A">
              </div>
              
             <center><button type="submit" class="btn btn-info" name="btn3">Registrar cliente</button></center>
         
-        <?php 
-
-         
-         if (isset($_POST["btn3"])) {
-            
-             $emailE=$_POST['emailE'];
-             $telefono=$_POST['telefono'];
-             $nombreC=$_POST['nombreC'];
-             $direccion=$_POST['direccion'];
-             $NIF=$_POST['NIF'];
-             
-
-                $aux = mysqli_query($conn, "INSERT INTO `clientes` (`nombre`, `telefono`, `email`, `NIF`,`direccion`)
-                  VALUES ('$nombreC','$telefono','$emailE','$NIF','$direccion')"); }?>
+        
 
 </div>
 

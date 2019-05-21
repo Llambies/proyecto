@@ -47,7 +47,7 @@
         
             
         
-        <button class="btn btn-info" onclick="window.location.href = './zonaadmin.php';">Volver</button>
+        <button class="btn btn-info" onclick="window.location.href = './zonaadminusuarios.php';">Volver</button>
 
     </header>
 
