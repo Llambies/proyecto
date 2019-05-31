@@ -58,7 +58,7 @@ function seleccionarParcela(seleccionada, idParcela, datosParcelas, punto, color
         aux2[idParcela]=dibujarNodo(nodos,datos,IdNodo);
         document.getElementById(parcelaID).style.display = "block";
         document.getElementById(cajaID).style.background = "#28a745";
-        document.getElementById(cajaID).style.color = "#eee";
+        document.getElementById(cajaID).style.color = "#fff";
         
 
 
@@ -69,7 +69,7 @@ function seleccionarParcela(seleccionada, idParcela, datosParcelas, punto, color
         aux2[idParcela].setMap(null);
         document.getElementById(parcelaID).style.display = "none";
         document.getElementById(cajaID).style.color = "#28a745";
-        document.getElementById(cajaID).style.background = "#eee";
+        document.getElementById(cajaID).style.background = "#fff";
         
 
 

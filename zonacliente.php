@@ -113,7 +113,7 @@ if (!$conn) {
 
 <div id="Paris" class="tabcontent">
   
-
+<br><br><br>
 
  <?php
             $result = mysqli_query($conn, "SELECT * FROM usuariosparcelas WHERE IdUsuario = '$id'");
@@ -217,6 +217,15 @@ if (!$conn) {
              </p>
          
          <div class="collapse" id="collapseExample" style="position: fixed;margin-top: 90px;background: white;padding: 0.5rem;min-width: 10rem;border-radius: 5px;">
+         
+         <!-- BÚSQUEDA DE PARCELAS -->
+         <form id="form_busqueda">
+             <input type="search" id="miBusqueda" name="q" placeholder="Buscar...">
+             <button class="btn btn-info" type="submit">Buscar</button>
+         </form>
+         <br>
+         <!-- -------------------- -->
+         
         <?php
             $result = mysqli_query($conn, "SELECT * FROM usuariosparcelas WHERE IdUsuario = '$id'");
              while ($consulta=mysqli_fetch_array($result)) {
@@ -229,8 +238,64 @@ if (!$conn) {
                 $aux = mysqli_query($conn, "SELECT * FROM parcelas WHERE IdParcela = '$parce'");
 
                  while ($consulta2=mysqli_fetch_array($aux)) {
+                    $q=$_GET['q'];
                     
+                    #en caso de que no se haya realizado busqueda
+                    if (empty($q)) {
+                        $nombre=$consulta2['Nombre'];
+                        $color=$consulta2['ColorParcela'];
+
+                    $nodos=[];
+                    $i1=0;
+
+                    $aux2 = mysqli_query($conn, "SELECT * FROM nodos WHERE IdParcela = '$parce'");
+                    while ($consulta3=mysqli_fetch_array($aux2)) {
+                        $nodos[$i1]=$consulta3['Latitud'];
+                        $i1++;
+                        $nodos[$i1]=$consulta3['Longitud'];
+                        $i1++;
+                        $idNodo=$consulta3['IdNodo'];
+                    }
+                    
+
+                    $i2=0;
+                    $vertices=[];
+
+                    $aux3 = mysqli_query($conn, "SELECT * FROM vertices WHERE IdParcela ='$parce'");
+                    while ($consulta4=mysqli_fetch_array($aux3)) {
+                        $vertices[$i2]=$consulta4['Latitud'];
+                        $i2++;
+                        $vertices[$i2]=$consulta4['Longitud'];
+                        $i2++;
+
+                    }
+
+                    echo    "<script>var color".$parce."=";
+                    echo    '"'.$color.'"';
+                    echo    ';var parcelaid'.$parce.'="parcela'.$parce.'"';
+                    echo    "; var nodo".$parce."=";
+                    echo    json_encode($nodos);
+                    echo    "; var caja".$parce."=";
+                    echo    '"caja'.$parce.'"';
+                    echo    ";var vertex".$parce."=";
+                    echo    json_encode($vertices);
+                    echo    ";</script>";
+                    echo    '
+                    <label class="btn btn-outline-success" style="width:100%;"  id="caja'.$parce.'">
+                    <input id="check'.$parce.'" type="checkbox" style="display: none;" onchange="seleccionarParcela(this.checked,'.$parce.',vertex'.$parce.',nodo'.$parce.',color'.$parce.',parcelaid'.$parce.',datos'.$parce.',caja'.$parce.','.$idNodo.')">
+                    '.$nombre.'</label><br>
+                   
+                   ';
+                    echo ' <style type="text/css">:root {color'.$parce.':'.$color.';}</style>';
+                        
+                    }
+                    else{
+                        $q=$_GET['q'];
                     $nombre=$consulta2['Nombre'];
+                    $pos = stripos($nombre, $q);
+                    if ($pos !== false) {
+                        
+                    
                     $color=$consulta2['ColorParcela'];
 
                     $nodos=[];
@@ -276,6 +341,8 @@ if (!$conn) {
                    ';
                     echo ' <style type="text/css">:root {color'.$parce.':'.$color.';}</style>';
                  }
+             }
+         }
              }
         ?>
     </div>

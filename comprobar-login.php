@@ -69,7 +69,7 @@ else if (password_verify($password, $hash) && $row['Rol'] == 'cliente') {
 	$_SESSION['mail'] =  $row['Email'];
 	$_SESSION['apellidos'] = $row['Apellidos'];
 	$_SESSION['id'] = $row['IdUsuario'];
-    header('Location: ./zonacliente.php?id='. $id);	
+    header('Location: ./zonacliente.php?id='. $id.'&q=');	
 			
 } else {
 	echo $hash;

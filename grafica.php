@@ -20,7 +20,8 @@ $IdNodo = $_POST['variable1'];
         }
         html, body {
             margin: 0;
-           
+            background: url(imgs/back.jpg)no-repeat center center;
+            background-size: cover;
             height: 100%;
         }
         header {
@@ -39,40 +40,36 @@ $IdNodo = $_POST['variable1'];
             height: 50px;
         }
         
-        header .boton-cerrar {
-            display: flex;
-            margin: 50px;
-            width: 119px;
-            height: 32px;
+        header a .atras {
+            margin-right: 1rem;
             background: #820053;
-            color: #fff;
+            width: 105px;
+            height: 30px;
             border: none;
             border-radius: 5px;
-            padding: 0.2rem;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
+            color: #fff;
+            cursor: pointer;
         }
         
-        header .boton-cerrar:hover {
+        header a .atras:hover {
             background: rgb(105, 0, 44);
         }
         canvas {
             background: white;
-            margin: 20px 0 20px 0;
+            margin: 40px 0 20px 0;
         }
     </style>
 </head>
 <body>
    <header>
         <a href="#"><img src="imgs/logo_u15.svg" alt="logo"></a>
-        <a href="zonacliente.php" class="boton-cerrar">Atrás</a>
+        <a href="zonacliente.php"><button type="button" class="atras">Atrás</button></a>
     </header>
-    <canvas id="myChart" width="10%" height="10%"></canvas>
+    <canvas id="myChart" width="80%" height="50%"></canvas>
 <script>
     
 var ctx = document.getElementById("myChart").getContext('2d');    
-
+    
 var opciones = {
         responsive: true,
         type: 'line',
@@ -220,10 +217,11 @@ var opciones = {
         }, // scales
         legend: {
             labels: {
-                fontSize: 36,
+                fontSize: 16,
                 fontColor: "black"
             } // labels
-        } // legend
+        }, // legend
+        maintainAspectRatio: false
     } // options
 
     } // opciones    

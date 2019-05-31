@@ -158,11 +158,11 @@
              $email=$_POST['email'];
              $nombre=$_POST['nombre'];
              $apellidos=$_POST['apellidos'];
-             $rol=$_POST['rol'];
-             echo $nombre.$contrasenya.$email.$nombre.$apellidos.$rol.$NIF;
+             
+            
 
                 $aux = mysqli_query($conn, "INSERT INTO `usuarios` ( `NIF`, `Nombre`, `Apellidos`, `Usuario`, `Password`, `Email`, `Rol`)
-                VALUES ( '$NIF','$nombre','$apellidos','$usuario','$contrasenya','$email','$rol')");}?>
+                VALUES ( '$NIF','$nombre','$apellidos','$usuario','$contrasenya','$email','cliente')");}?>
 </div>
 </div>
 </div>       
